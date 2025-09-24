@@ -19,7 +19,7 @@ def on_message(client, userdata, msg):
     except ValueError:
         print("Mensagem inválida recebida:", msg.payload.decode())
 
-client = mqtt.Client()
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
 client.on_message = on_message
 
 client.connect(BROKER, PORT, 60)
